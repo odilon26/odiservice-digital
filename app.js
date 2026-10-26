@@ -26,7 +26,7 @@ const EN = {
   'p3.f5': 'Works offline, your notes stay on your phone',
   'p3.cta': 'Coming soon', 'p3.notify': 'Get notified at launch',
   'p4.tag': 'Day-to-day management for bars, maquis and drink shops', 'p4.badge': 'Coming soon',
-  'p4.desc': 'For owners of maquis, bars, drink shops and kiosks: the till, the drinks stock and customer tabs tracked every day on the phone. You know what your place really earns.',
+  'p4.desc': 'For owners of maquis, bars, drink shops and kiosks: the till, the drinks stock and customer tabs tracked every day, on the phone or the computer. You know what your place really earns.',
   'p4.f1': 'Morning float and evening closing, till gap calculated automatically',
   'p4.f2': 'Drinks stock, deliveries and slow-moving products',
   'p4.f3': 'Customer tabs and supplier debts: who owes what, since when',
