@@ -68,6 +68,8 @@ h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.15;letter-spacing:-.02em
 .product.soon p{margin-top:16px;color:var(--muted)}
 .product.soon .btn.ghost{color:var(--cyan-d)}
 .soon-ico{font-size:44px}
+.btn.off{opacity:.55;cursor:not-allowed;pointer-events:none}
+.badge.soon-b{background:#FFF1D6;color:#8A5300}
 .howto{margin-top:36px;padding:26px 30px;border-radius:24px;background:var(--bg2);border:1px solid var(--line)}
 .howto h3{font-size:21px;font-weight:800}
 .howto ol{margin:14px 0 0 20px;display:grid;gap:8px}
