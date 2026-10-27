@@ -4,7 +4,7 @@ const MAIL = 'odilonservice26@gmail.com';
 
 const EN = {
   'nav.produits': 'Products', 'nav.services': 'Services', 'nav.apropos': 'About', 'nav.contact': 'Contact',
-  'hero.kicker': 'Born in Aboisso, Côte d\'Ivoire',
+  'hero.kicker': 'Ivorian company based in Aboisso',
   'hero.title': 'Simple digital tools, <em>built</em> for real life on the ground.',
   'hero.lead': 'Odi\'Service Digital builds apps that solve everyday problems, adapted to local habits and budgets.',
   'hero.cta1': 'Discover our products', 'hero.cta2': 'Talk about your project',
@@ -56,7 +56,7 @@ const EN = {
   'ct.addr': 'Aboisso, Côte d\'Ivoire', 'ct.chan': 'WhatsApp channel',
   'f.name': 'Your name', 'f.msg': 'Your message', 'f.wa': 'Send via WhatsApp', 'f.mail': 'Send via e-mail',
   'f.note': 'The message opens in WhatsApp or your mail app: you just have to send it.',
-  'ft.tag': 'Born in Aboisso, Côte d\'Ivoire, designed for everyone, everywhere.',
+  'ft.tag': 'Ivorian company based in Aboisso, serving everyone, everywhere.',
   'err': 'Please enter your name and your message.', 'hello': 'Hello Odi\'Service Digital, I am', 'subject': 'Message from the website',
   'nav.cta': 'Free trial',
   'hero.t1': '7-day free trial', 'hero.t2': 'Works offline', 'hero.t3': 'No Play Store needed',
