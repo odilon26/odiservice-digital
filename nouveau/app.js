@@ -193,10 +193,10 @@ if ('IntersectionObserver' in window) {
   // Titres et lignes de séparation
   const io2 = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
-    e.target.classList.add(e.target.classList.contains('sec') ? 'seen' : 'in');
+    e.target.classList.add(e.target.matches('.sec, .ligne') ? 'seen' : 'in');
     io2.unobserve(e.target);
   }), { threshold: 0.2 });
-  document.querySelectorAll('.split, .sec').forEach(el => { if (!el.closest('.hero')) io2.observe(el); });
+  document.querySelectorAll('.split, .sec, .ligne').forEach(el => { if (!el.closest('.hero')) io2.observe(el); });
 
   // Le fond change d'ambiance selon la section regardée
   const zones = new IntersectionObserver(es => es.forEach(e => {
@@ -231,7 +231,8 @@ if (!calme) {
     });
     if (innerWidth > 980) shows.forEach((s, i) => {
       const suiv = shows[i + 1]; if (!suiv) return;
-      const p = Math.min(Math.max((h - suiv.getBoundingClientRect().top) / (h - 96), 0), 1);
+      const cible = parseFloat(suiv.style.top) || 96;
+      const p = Math.min(Math.max((h - suiv.getBoundingClientRect().top) / (h - cible), 0), 1);
       s.style.transform = p ? `scale(${(1 - p * .06).toFixed(3)})` : '';
       s.style.filter = p ? `brightness(${(1 - p * .45).toFixed(2)})` : '';
     });
@@ -248,3 +249,9 @@ if (!calme) {
     st.addEventListener('pointerleave', () => { st.style.transform = ''; });
   });
 }
+
+// Cartes produits empilées : chacune s'arrête assez haut pour que ses boutons restent visibles
+const caler = () => document.querySelectorAll('.show').forEach(s => {
+  s.style.top = innerWidth > 980 ? Math.min(96, innerHeight - s.offsetHeight - 16) + 'px' : '';
+});
+addEventListener('resize', caler); addEventListener('load', caler); caler();

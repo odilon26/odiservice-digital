@@ -533,3 +533,28 @@ html,body{overflow-x:hidden;overflow-x:clip;max-width:100%}
   .split .w > span{transform:translateY(105%)}
   .js .reveal{filter:none}
 }
+
+/* ══════════ Dernières retouches ordinateur ══════════ */
+/* Les blocs reviennent bien à leur place une fois apparus (carte Carnet comprise) */
+.js .show .reveal.in,.js .show.rev .reveal.in{opacity:1;transform:none;filter:none}
+/* Ligne lumineuse entre les produits et « Comment télécharger » */
+.ligne{position:relative;height:2px;margin:90px 6% 0}
+.ligne::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--cyan) 30%,var(--lime) 70%,transparent);transform:scaleX(0);transition:transform 1.4s var(--ease);opacity:.8}
+.ligne.seen::before{transform:scaleX(1)}
+.ligne::after{content:'';position:absolute;top:-5px;left:0;width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 0 18px 6px rgba(197,211,0,.7);opacity:0}
+.ligne.seen::after{animation:comet2 3.5s 1s var(--ease-io) infinite}
+@keyframes comet2{0%{left:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:100%;opacity:0}}
+.ligne + .howto{margin-top:70px}
+/* Plus de tirets entre les étapes */
+.steps::before{display:none}
+/* Cartes produits plus compactes pour tenir dans un écran d'ordinateur */
+@media (min-width:981px){
+  .show{padding:28px 32px;gap:48px}
+  .stage{min-height:440px;padding:28px 20px}
+  .stage .browser{width:min(100%,460px)}
+  .p-desc{margin-top:12px;font-size:16px}
+  .ticks{gap:8px;margin-top:14px}
+  .show .btns{margin-top:20px}
+  .badge{margin-top:14px}
+}
+@media (prefers-reduced-motion:reduce){ .ligne::after{display:none} }
