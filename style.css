@@ -147,7 +147,7 @@ h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.12;letter-spacing:-.025e
 .show{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:90px}
 .show.rev .show-txt{order:2}
 .p-head{display:flex;align-items:center;gap:16px}
-.p-head img{border-radius:18px;box-shadow:0 10px 24px -8px rgba(11,22,38,.35)}
+.p-head img{flex:none;border-radius:18px;box-shadow:0 10px 24px -8px rgba(11,22,38,.35)}
 .p-head h3{font-size:30px;font-weight:800}
 .p-tag{color:var(--muted);font-weight:500;line-height:1.4}
 .badge{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:800;font-size:13.5px;padding:7px 14px;border-radius:999px}
