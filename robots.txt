@@ -1,3 +1,5 @@
+# Seule la page d'accueil doit apparaître dans Google (voir sitemap.xml).
+# Les pages légales restent explorables pour que Google lise leur « noindex » et les retire.
 User-agent: *
 Allow: /
 

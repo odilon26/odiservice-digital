@@ -6,3 +6,15 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cross-Origin-Opener-Policy: same-origin
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+# 26/11 : hors de Google (pages gardées en ligne, liées depuis le pied de page)
+/confidentialite.html
+  X-Robots-Tag: noindex, follow
+/mentions-legales.html
+  X-Robots-Tag: noindex, follow
+/agence/*
+  X-Robots-Tag: noindex
+/carnet/*
+  X-Robots-Tag: noindex
+/google8f83777066ffcb4b.html
+  X-Robots-Tag: noindex

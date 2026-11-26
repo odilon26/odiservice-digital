@@ -3,3 +3,6 @@
 /agence/  https://agence.odiservicedigital.com/          302!
 /nouveau   /   301
 /nouveau/  /   301
+
+# 26/11 : une seule adresse pour Google (l'adresse Netlify renvoie vers le domaine)
+https://odiservice-digital.netlify.app/*  https://odiservicedigital.com/:splat  301!

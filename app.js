@@ -5,11 +5,11 @@ const MAIL = 'odilonservice26@gmail.com';
 const EN = {
   'nav.produits': 'Products', 'nav.services': 'Services', 'nav.apropos': 'About', 'nav.contact': 'Contact',
   'hero.kicker': 'Ivorian company based in Aboisso',
-  'hero.title': 'Simple digital tools, <em>built</em> for real life on the ground.',
-  'hero.lead': 'Odi\'Service Digital builds apps that solve everyday problems, adapted to local habits and budgets.',
-  'hero.cta1': 'Discover our products', 'hero.cta2': 'Talk about your project',
+  'hero.title': 'Run your business and your daily life <em>from your phone</em>.',
+  'hero.lead': 'Simple apps for mobile money shops, traders and families in Côte d\'Ivoire. Install them in one tap, no Play Store needed.',
+  'hero.cta1': 'See our apps', 'hero.cta2': 'Talk about your project',
   'prod.title': 'Our products', 'prod.sub': 'Ready-to-use apps, downloadable right here, straight to your phone, no Play Store needed.',
-  'p1.tag': 'Mobile money shop reports, without the notebook', 'p1.badge': '7-day free trial',
+  'p1.tag': 'Mobile money shop reports, done in 2 minutes', 'p1.badge': '7-day free trial',
   'p1.desc': 'For mobile money shop managers and owners: opening and closing reports take 2 minutes, the gap with the target balance is calculated automatically, and the summary goes straight to the owner\'s WhatsApp.',
   'p1.f1': 'More than 20 operators: Orange Money, Wave, MTN, Moov, Djamo, Western Union…',
   'p1.f2': 'Banknote and coin counter, named credits with WhatsApp reminders',
@@ -52,7 +52,7 @@ const EN = {
   'serv.title': 'Have a project?', 'serv.sub': 'An app idea, a website, a tool for your business: let\'s build it together.',
   's1.t': 'Custom apps', 's1.d': 'A web app you can install on any phone, designed for your trade: tracking, calculations, team, reports.',
   's2.t': 'Professional websites', 's2.d': 'A clear, fast website that presents your business, visible on Google and social media.',
-  's3.t': 'Automation', 's3.d': 'Fewer notebooks and repetitive tasks: WhatsApp summaries, spreadsheets, automatic reminders.',
+  's3.t': 'Automation', 's3.d': 'Fewer repetitive tasks: WhatsApp summaries, spreadsheets, automatic reminders.',
   's4.t': 'Local support', 's4.d': 'Getting started with your tools, training your team, and a team available for you at any time.',
   'ab.title': 'Our mission',
   'ab.p1': 'Building simple digital tools that solve everyday problems, adapted to our context, our habits and our means.',
@@ -67,12 +67,12 @@ const EN = {
   'ft.tag': 'Ivorian company based in Aboisso, serving everyone, everywhere.',
   'err': 'Please enter your name and your message.', 'hello': 'Hello Odi\'Service Digital, I am', 'subject': 'Message from the website',
   'nav.cta': 'Free trial',
-  'hero.t1': '7-day free trial', 'hero.t2': 'Works offline', 'hero.t3': 'No Play Store needed',
+  'hero.t1': 'Cash report done in 2 minutes', 'hero.t2': 'Works even offline', 'hero.t3': 'Free trial to get started',
   'chip.1t': 'Summary sent', 'chip.1s': 'to the owner\'s WhatsApp', 'chip.2t': 'Report done in 2 min', 'chip.2s': 'opening and closing',
   'ops.t': 'Odi\'s Agence handles more than 20 operators',
   'st.1': 'operators handled', 'st.2': 'to do the report', 'st.3u': 'days', 'st.3': 'free trial', 'st.4': 'PIN code asked',
   'prod.eyebrow': 'Our apps', 'serv.eyebrow': 'Tailor-made', 'ab.eyebrow': 'Who we are', 'ct.eyebrow': 'Let\'s talk',
-  'cta.t': 'Ready to drop the notebook?', 'cta.s': 'Try Odi\'s Agence free for 7 days, or tell us about your project.',
+  'cta.t': 'Ready to save time every day?', 'cta.s': 'Try Odi\'s Agence free for 7 days, or tell us about your project.',
   'cta.b1': 'Start the free trial', 'cta.b2': 'Write on WhatsApp',
   'demo.note': 'Real app screens, with sample amounts.', 'demo.note2': 'Real app screens, with fictional examples.'
 };
@@ -206,49 +206,21 @@ if ('IntersectionObserver' in window) {
   }), { threshold: 0.2 });
   document.querySelectorAll('.split, .sec, .ligne').forEach(el => { if (!el.closest('.hero')) io2.observe(el); });
 
-  // Le fond change d'ambiance selon la section regardée
-  const zones = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) document.body.dataset.zone = e.target.id || '';
-  }), { rootMargin: '-45% 0px -45% 0px' });
-  document.querySelectorAll('main > section[id]').forEach(s => zones.observe(s));
 }
 
+/* 26/11 : défilement allégé (petit Android). Supprimé : cartes empilées (sticky + flou + assombrissement recalculés
+   à chaque image), profondeur des écrans (lecture de position à chaque pas = mises en page forcées), fond qui change
+   selon la section, étincelles. Reste : la barre de progression, qui ne fait que glisser. */
 if (!calme) {
-  // Petites étincelles qui montent dans le fond
-  const fx = document.querySelector('.bg-fx');
-  for (let k = 0; k < 18; k++) {
-    const s = document.createElement('span'); s.className = 'spark';
-    s.style.left = Math.random() * 100 + 'vw'; s.style.top = 60 + Math.random() * 50 + 'vh';
-    s.style.animationDelay = (-Math.random() * 9) + 's'; s.style.animationDuration = 7 + Math.random() * 6 + 's';
-    fx.appendChild(s);
-  }
-
-  // À chaque image : barre de progression, profondeur des écrans, cartes empilées
   const barre = document.getElementById('progress');
-  const shows = [...document.querySelectorAll('.show')];
-  const profondeur = [...document.querySelectorAll('.stage .browser, .stage .phone, .duo-ph .phone')];
-  let attente = false;
-  const image = () => {
-    attente = false;
-    const h = innerHeight, max = document.documentElement.scrollHeight - h;
-    barre.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
-    profondeur.forEach((el, i) => {
-      const r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > h + 200) return;
-      const c = (r.top + r.height / 2 - h / 2) / h;
-      el.style.translate = `0 ${(c * (i % 2 ? -50 : 40)).toFixed(1)}px`;
-    });
-    if (innerWidth > 980) shows.forEach((s, i) => {
-      const suiv = shows[i + 1]; if (!suiv) return;
-      const cible = parseFloat(suiv.style.top) || 96;
-      const p = Math.min(Math.max((h - suiv.getBoundingClientRect().top) / (h - cible), 0), 1);
-      s.style.transform = p ? `scale(${(1 - p * .06).toFixed(3)})` : '';
-      s.style.filter = p ? `brightness(${(1 - p * .45).toFixed(2)})` : '';
-    });
-  };
-  const auDefil = () => { if (!attente) { attente = true; requestAnimationFrame(image); } };
-  addEventListener('scroll', auDefil, { passive: true }); addEventListener('resize', auDefil); image();
+  let attente = false, max = 1;
+  const mesurer = () => { max = Math.max(1, document.documentElement.scrollHeight - innerHeight); };
+  const image = () => { attente = false; barre.style.transform = `scaleX(${Math.min(1, scrollY / max)})`; };
+  addEventListener('scroll', () => { if (!attente) { attente = true; requestAnimationFrame(image); } }, { passive: true });
+  addEventListener('resize', () => { mesurer(); image(); }); addEventListener('load', () => { mesurer(); image(); });
+  mesurer(); image();
 
-  // Les scènes produits s'inclinent vers la souris
+  // Les scènes produits s'inclinent vers la souris (ordinateur seulement, rien pendant le défilement)
   if (matchMedia('(hover: hover)').matches) document.querySelectorAll('.stage').forEach(st => {
     st.addEventListener('pointermove', e => {
       const r = st.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
@@ -257,9 +229,3 @@ if (!calme) {
     st.addEventListener('pointerleave', () => { st.style.transform = ''; });
   });
 }
-
-// Cartes produits empilées : chacune s'arrête assez haut pour que ses boutons restent visibles
-const caler = () => document.querySelectorAll('.show').forEach(s => {
-  s.style.top = innerWidth > 980 ? Math.min(96, innerHeight - s.offsetHeight - 16) + 'px' : '';
-});
-addEventListener('resize', caler); addEventListener('load', caler); caler();
